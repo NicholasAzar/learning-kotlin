@@ -10,6 +10,12 @@ fun main(args: Array<String>) {
     nullabilityLists()
 
     println("Null Checks: " + nullChecks())
+
+    stringTemplate()
+
+    whenStatement()
+
+    loopingOverArrays()
 }
 
 fun printHello() {
@@ -79,4 +85,68 @@ fun nullabilityLists() {
 fun nullChecks():Int {
     val nullTest: Int? = null
     return nullTest?.inc() ?: 0
+}
+
+/**
+ * Practice Time
+ * Create three String variables for trout, haddock, and snapper.
+ * Use a String template to print whether you do or don't like to eat these kinds of fish.
+ */
+fun stringTemplate() {
+    val trout = "Trout"
+    val haddock = "Haddock"
+    val snapper = "Snapper"
+
+    println("I like to eat $trout, $haddock, and $snapper!")
+}
+
+
+/**
+ * Practice Time
+ * when statements in Kotlin are like case or switch statements in other languages.
+ *
+ * Create a when statement with three comparisons:
+ *
+ * If the length of the fishName is 0, print an error message.
+ * If the length is in the range of 3...12, print "Good fish name".
+ * If it's anything else, print "OK fish name".
+ */
+fun whenStatement() {
+    val fishName = "Tuna"
+
+    when (fishName.length) {
+        0 -> println("Error: fish name is empty.")
+        in 3..12 -> println("Good fish name")
+        else -> println("OK fish name")
+    }
+}
+
+
+/**
+ * Practice Time
+ * Looping over arrays and lists is a fundamental technique that has a lot of flexibility in Kotlin. Let's practice.
+ *
+ * Basic example
+ * Create an integer array of numbers called numbers, from 11 to 15.
+ * Create an empty mutable list for Strings.
+ * Write a for loop that loops over the array and adds the string representation of each number to the list.
+ *
+ * Challenge example
+ * How can you use a for loop to create (a list of) the numbers between 1 and 100 that are divisible by 7?
+ */
+fun loopingOverArrays() {
+    val numbers = Array(5) { it + 11 }
+    val strings = mutableListOf<String>()
+
+    for (number in numbers) {
+        strings.add(number.toString())
+    }
+
+    println(strings)
+
+    val divisibleBySeven = mutableListOf<String>()
+    for (number in 7..100 step 7) {
+        divisibleBySeven.add(number.toString())
+    }
+    println(divisibleBySeven)
 }
